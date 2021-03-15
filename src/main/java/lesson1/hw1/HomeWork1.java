@@ -26,6 +26,7 @@ public class HomeWork1 {
     public static void main(String[] args) {
         System.out.println(calculate(2, 2, 0, 0));
         sayHello("Mike");
+        System.out.println(isLeap(2021));
     }
 
 }
