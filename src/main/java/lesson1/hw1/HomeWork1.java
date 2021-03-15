@@ -19,14 +19,15 @@ public class HomeWork1 {
         System.out.println("Привет, " + name);
     }
 
-    static boolean isLeap(int year) {
-        return new GregorianCalendar().isLeapYear(year);
+    static void isLeap(int year) {
+        boolean isLeap = new GregorianCalendar().isLeapYear(year);
+        System.out.println(isLeap ? "Високосный" : "Обычный");
     }
 
     public static void main(String[] args) {
         System.out.println(calculate(2, 2, 0, 0));
         sayHello("Mike");
-        System.out.println(isLeap(2021));
+        isLeap(2020);
         System.out.println("Lol");
     }
 
