@@ -3,6 +3,8 @@ package lesson4;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import lesson5.Point;
+
 public class XO {
 
     private static final char DEFAULT = '_';
@@ -97,20 +99,27 @@ public class XO {
     }
 
     private static void movePC() {
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (MAP[i][j] == DEFAULT) {
-                    makeStep(i, j, O);
-                    return;
-                }
-            }
-        }
+        int x, y;
+        do {
+            x = (int) (Math.random() * 3);
+            y = (int) (Math.random() * 3);
+        } while (!isValid(x, y));
+        makeStep(x, y, O);
     }
 
     private static boolean checkVictory(char x) {
         // написать логику
-        if (Math.random() > 0.8) {
-            return true;
+        for (int i = 0; i < SIZE; i++) {
+            boolean row = true, column = true, d1 = true, d2 = true;
+            for (int j = 0; j < SIZE; j++) {
+                row &= MAP[i][j] == x;
+                column &= MAP[j][i] == x;
+                d1 &= MAP[j][j] == x;
+                d2 &= MAP[j][SIZE - j - 1] == x;
+            }
+            if (row || column || d1 || d2) {
+                return true;
+            }
         }
         return false;
     }
@@ -130,6 +139,8 @@ public class XO {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         game(in);
+        Point p = new Point(1, 2);
+
     }
 
 }
