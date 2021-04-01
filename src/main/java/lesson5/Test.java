@@ -1,9 +1,10 @@
 package lesson5;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Point point = new Point(3, 5);
         System.out.println(point);
 
@@ -34,6 +35,22 @@ public class Test {
 
         pp2 = pp3;
         pp2.print();
+
+        Point[] points = new Point[100000];
+
+        for (int i = 0; i < 100000; i++) {
+            new Point();
+        }
+
+        points[2] = null;
+
+//        while (true) {
+//            TimeUnit.SECONDS.sleep(1);
+//            System.out.println("*");
+//            for (int i = 0; i < 500; i++) {
+//                new ArrayList<>();
+//            }
+//        }
 
     }
 }

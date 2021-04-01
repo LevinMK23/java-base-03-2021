@@ -17,6 +17,12 @@ public class Point {
     // cmd + N
 
 
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.println("Object " + this + " killed");
+    }
+
     public void setX(int x) {
         this.x = x;
         System.out.println(this);
