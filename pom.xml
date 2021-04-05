@@ -6,7 +6,11 @@
 
     <groupId>ru.geekbrains</groupId>
     <artifactId>java-base-03-2021</artifactId>
+    <packaging>pom</packaging>
     <version>1</version>
+    <modules>
+        <module>gui</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
