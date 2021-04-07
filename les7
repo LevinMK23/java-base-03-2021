@@ -1,0 +1,53 @@
+package lesson7;
+
+public class Main {
+    public static void main(String[] args) {
+        Cat[] catArray = new Cat[5];
+        catArray[0] = new Cat("Barsik", 10);
+        catArray[1] = new Cat("Rysya", 10);
+        catArray[2] = new Cat("leo", 10);
+        catArray[3] = new Cat("Gepard", 20);
+        catArray[4] = new Cat("Tiger", 30);
+        Plate plate = new Plate(100);
+        plate.info();
+        catArray[4].eat(plate);
+        plate.info();
+
+
+
+    }
+    public static class Cat {
+        public String name;
+        public int appetite;
+        public Cat(String name,int appetite ) {
+            this.name = name;
+            this.appetite = appetite;
+        }
+        public void eat(Plate p) {
+            p.decreaseFood(appetite);
+        }
+        public void print(String s) {}
+        public void print() {}
+    }
+    @Override
+    public String toString(){
+      return String.format("Имя: %s, Аппетит: %s"); }
+      public void print(){
+          System.out.println(this);
+      }
+    public static class Plate {
+        private   int food;
+
+        public Plate(int food){
+            this.food = food;
+
+        }
+        public void decreaseFood(int n){
+            food -= n;
+        }
+        public void info (){
+            System.out.println("plate: " + food); }
+
+
+        }
+    }
